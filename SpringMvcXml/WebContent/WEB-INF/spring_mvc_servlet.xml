@@ -23,6 +23,8 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+	<mvc:resources location="/statics/" mapping="/statics/**"></mvc:resources>
+
 </beans>
 
 
