@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
@@ -22,7 +22,7 @@ public class FormController {
 	public String getFormModelView() {
 		return "formForModelExample";
 	}
-	@RequestMapping("/addmodel")
+	@PostMapping("/addmodel")
 	public String addToModel(HttpServletRequest req, Model model) {
 		String name = req.getParameter("name");
 		name += " agregado al modelo";

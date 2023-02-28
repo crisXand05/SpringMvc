@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>Add to model</h1>
-	<form action="addmodel">
+	<form action="addmodel" method = "POST">
 		<input type="text" name="name">
 		<input type="submit">
 	</form>
