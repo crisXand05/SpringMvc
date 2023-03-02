@@ -9,6 +9,7 @@
 <body>
 	<h1>Primera pagina</h1>
 	<a href="formexample">Formulario</a>
-	<a href="formmodel">Add to model</a>
+	<a href="basics/formmodel">Add to model</a>
+	<a href="student/register">Register student</a>
 </body>
 </html>
