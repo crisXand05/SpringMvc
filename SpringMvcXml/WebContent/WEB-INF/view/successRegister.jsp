@@ -16,5 +16,7 @@
 	<c:if test="${student.sex == 'm' }">Male</c:if>
 	<h2>Idiomas escogidos</h2>
 	${ student.language }
+	<br>
+	<strong>Tarjeta de credito</strong> ${student.creditCard }
 </body>
 </html>

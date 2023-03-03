@@ -1,11 +1,20 @@
 package com.chr.spring;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class Student {
+	@NotNull
+	@Size(min=2, message = "Campo requerido")
 	private String name;
 	private String lastName;
 	private String subject;
 	private String sex;
 	private String language;
+	
+	@Pattern(regexp="[0-9]{16}", message = "Tarjeta de credito no valida")
+	private String creditCard;
 	
 	public String getLanguage() {
 		return language;
@@ -37,4 +46,12 @@ public class Student {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	public String getCreditCard() {
+		return creditCard;
+	}
+	public void setCreditCard(String creditCard) {
+		this.creditCard = creditCard;
+	}
+	
+	
 }

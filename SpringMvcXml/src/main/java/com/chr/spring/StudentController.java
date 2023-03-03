@@ -1,7 +1,10 @@
 package com.chr.spring;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -15,7 +18,10 @@ public class StudentController {
 		return "registerView";
 	}
 	@RequestMapping("/registerstudent")
-	public String registerStudent(@ModelAttribute("student") Student student) {
+	public String registerStudent(@Valid @ModelAttribute("student") Student student, BindingResult validation) {
+		if(validation.hasErrors()) {
+			return "registerView";
+		}
 		return "successRegister";
 	}
 }

@@ -10,8 +10,11 @@
 <body>
 	<form:form action = "registerstudent" modelAttribute = "student">
 		<label>Nombre</label> <form:input path="name"/>
+		<form:errors path="name" style="color:red"/>
 		<br>
 		<label>Apellido</label> <form:input path="lastName"/>
+		<label>Tarjeta de credito</label> <form:input path="creditCard"/>
+		<form:errors path = "creditCard" style="color:red"/>
 		<br>
 		<label>Materia</label>
 		<form:select path="subject">
