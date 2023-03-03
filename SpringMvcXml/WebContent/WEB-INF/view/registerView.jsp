@@ -13,6 +13,8 @@
 		<form:errors path="name" style="color:red"/>
 		<br>
 		<label>Apellido</label> <form:input path="lastName"/>
+		<label>Edad</label> <form:input path="age"/>
+		<form:errors path="age"></form:errors>
 		<label>Tarjeta de credito</label> <form:input path="creditCard"/>
 		<form:errors path = "creditCard" style="color:red"/>
 		<br>
