@@ -37,6 +37,9 @@
 		 <label>English</label> <form:checkbox path = "language" value = "English" />
 		 <label>French</label> <form:checkbox path = "language" value = "French" />
 		 <label>Portuguese</label> <form:checkbox path = "language" value = "Portuguese" />
+		<label>Numero par</label><form:input path="evenNumber"/>
+		<form:errors path="evenNumber"/>
+		<br>
 		<input type = "submit" value = "Enviar">
 	</form:form>
 </body>

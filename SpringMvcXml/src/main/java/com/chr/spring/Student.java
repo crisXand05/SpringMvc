@@ -6,6 +6,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.chr.spring.customvalidation.EvenNumber;
+
 public class Student {
 	@NotNull
 	@Size(min=2, message = "Campo requerido")
@@ -14,7 +16,15 @@ public class Student {
 	private String subject;
 	private String sex;
 	private String language;
+	@EvenNumber
+	private Integer evenNumber;
 	
+	public Integer getEvenNumber() {
+		return evenNumber;
+	}
+	public void setEvenNumber(Integer evenNumber) {
+		this.evenNumber = evenNumber;
+	}
 	@Min(value = 10, message = "Debes ser mayor de diez anios")
 	@Max(value = 100, message = "Debes tener menos de cien anios")
 	private int age;
