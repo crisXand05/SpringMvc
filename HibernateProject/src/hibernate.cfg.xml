@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Dialecto Hibernate -->
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+
+        <!-- Conexión a la base de datos -->
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+        <property name="hibernate.connection.username">SYSTEM</property>
+        <property name="hibernate.connection.password">piespi3010</property>
+        <property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+
+        <!-- Muestra por consola el código SQL usado por hibernate al trabajar con la BD -->
+        <property name="show_sql">true</property>
+
+        <!-- Creación de esquema automática. 
+            validate: Valida el esquema, no crea la Base de datos, actualiza, elimina y añade registros
+            update: Actualiza el esquema. Crea base de datos si no existe. No elimina esquema anterior.
+            create: Crea siempre el esquema eliminando información anterior. Elimina la tabla y la vuelve a crear.
+            create-drop: Elimina el esquema al final de la sesión.
+        -->
+        <property name="hibernate.hbm2ddl.auto">update</property>  
+
+        <!-- Configurar la cache de hibernate -->
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</property>
+
+        <!-- Se unirá la sesión al thread en el que se ha llamado -->
+        <property name="current_session_context_class">thread</property>
+
+        
+
+    </session-factory>
+</hibernate-configuration>
