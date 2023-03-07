@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class Customer {
 	@Id
 	@Column(name="idCustomer")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idCustomer;
 	
 	@Column(name="nameCustomer")
