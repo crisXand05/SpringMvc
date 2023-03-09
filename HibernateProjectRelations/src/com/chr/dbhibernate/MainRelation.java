@@ -17,7 +17,7 @@ public class MainRelation {
 				.buildSessionFactory();
 		Session sesion = factory.openSession();
 		try {
-			deleteCustomer(sesion,3);
+			getCustomer(sesion,1);
 			//insertCustomer(sesion);
 			System.out.println("commit");
 		}catch(Exception e) {
@@ -48,6 +48,14 @@ public class MainRelation {
 		}else {
 			System.out.println("Registro no encontrado");
 		}
+		sesion.getTransaction().commit();
+	}
+	
+	public static void getCustomer(Session sesion, int id) {
+		sesion.beginTransaction();
+		CustomerDetail detalle = sesion.get(CustomerDetail.class, id);
+		System.out.println(detalle);
+		System.out.println(detalle.getCliente());
 		sesion.getTransaction().commit();
 	}
 }

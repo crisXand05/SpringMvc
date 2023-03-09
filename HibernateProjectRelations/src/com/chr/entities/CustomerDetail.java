@@ -16,9 +16,20 @@ public class CustomerDetail {
 	
 	@Column(name="number_phone")
 	private String numberPhone;
+	
+	@OneToOne(mappedBy="customerDetails", cascade = CascadeType.ALL)
+	//@MapsId
+	//@JoinColumn(name = "id_details")
+	private Customer cliente;
+	
+	public Customer getCliente() {
+		return cliente;
+	}
 
-	
-	
+	public void setCliente(Customer cliente) {
+		this.cliente = cliente;
+	}
+
 	public CustomerDetail(String dui, String numberPhone) {
 		this.dui = dui;
 		this.numberPhone = numberPhone;
@@ -50,6 +61,12 @@ public class CustomerDetail {
 
 	public void setNumberPhone(String numberPhone) {
 		this.numberPhone = numberPhone;
+	}
+
+	@Override
+	public String toString() {
+		return "CustomerDetail [idDetails=" + idDetails + ", dui=" + dui + ", numberPhone=" + numberPhone + ", cliente="
+				+ cliente + "]";
 	}
 	
 	
