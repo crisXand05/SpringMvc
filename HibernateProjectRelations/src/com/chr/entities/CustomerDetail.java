@@ -65,8 +65,7 @@ public class CustomerDetail {
 
 	@Override
 	public String toString() {
-		return "CustomerDetail [idDetails=" + idDetails + ", dui=" + dui + ", numberPhone=" + numberPhone + ", cliente="
-				+ cliente + "]";
+		return "CustomerDetail [idDetails=" + idDetails + ", dui=" + dui + ", numberPhone=" + numberPhone  + "]";
 	}
 	
 	

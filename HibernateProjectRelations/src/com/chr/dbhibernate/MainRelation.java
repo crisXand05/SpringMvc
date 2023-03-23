@@ -1,11 +1,14 @@
 package com.chr.dbhibernate;
 
+import java.util.Date;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import com.chr.entities.Customer;
 import com.chr.entities.CustomerDetail;
+import com.chr.entities.Order;
 
 public class MainRelation {
 
@@ -14,11 +17,12 @@ public class MainRelation {
 		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").
 				addAnnotatedClass(Customer.class)
 				.addAnnotatedClass(CustomerDetail.class)
+				.addAnnotatedClass(Order.class)
 				.buildSessionFactory();
 		Session sesion = factory.openSession();
 		try {
-			getCustomer(sesion,1);
-			//insertCustomer(sesion);
+			
+			addOrder(sesion,1);
 			System.out.println("commit");
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -57,5 +61,15 @@ public class MainRelation {
 		System.out.println(detalle);
 		System.out.println(detalle.getCliente());
 		sesion.getTransaction().commit();
+	}
+	public static void addOrder(Session sesion, int idUser) {
+		sesion.beginTransaction();
+		Customer customer = sesion.get(Customer.class,idUser);
+		Order order = new Order(new Date());
+		order.setFormaPago("efectivo");
+		customer.agregarPedidos(order);
+		sesion.save(order);
+		sesion.getTransaction().commit();
+		
 	}
 }

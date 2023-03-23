@@ -1,5 +1,8 @@
 package com.chr.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -23,6 +26,10 @@ public class Customer {
 	@PrimaryKeyJoinColumn
 	private CustomerDetail customerDetails;
 	
+	@OneToMany(mappedBy = "customer", cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.DETACH})
+	private List<Order> orders;
+	
+	
 	public CustomerDetail getCustomerDetails() {
 		return customerDetails;
 	}
@@ -34,6 +41,12 @@ public class Customer {
 	public Customer() {
 		
 	}
+	
+	public void agregarPedidos(Order order) {
+		if(orders == null) orders = new ArrayList<>();	
+		orders.add(order);
+		order.setCustomer(this);
+	}
 
 	public Customer(String nameCustomer, String lastName, String address) {
 		
@@ -41,7 +54,7 @@ public class Customer {
 		this.lastName = lastName;
 		this.address = address;
 	}
-
+ 
 	public int getIdCustomer() {
 		return idCustomer;
 	}
