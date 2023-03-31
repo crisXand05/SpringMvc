@@ -1,6 +1,7 @@
 package com.chr.dbhibernate;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -22,7 +23,8 @@ public class MainRelation {
 		Session sesion = factory.openSession();
 		try {
 			
-			addOrder(sesion,1);
+			//addOrder(sesion,1);
+			insertCustomer(sesion);
 			System.out.println("commit");
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -34,7 +36,7 @@ public class MainRelation {
 	}
 	
 	public static void insertCustomer(Session sesion) {
-		Customer cliente = new Customer("Lisandro", "asdad","San adas");
+		Customer cliente = new Customer("Ma", "asdad","San adas");
 		CustomerDetail detalles = new CustomerDetail("123456789", "12345678");
 		cliente.setCustomerDetails(detalles);
 		
@@ -65,7 +67,7 @@ public class MainRelation {
 	public static void addOrder(Session sesion, int idUser) {
 		sesion.beginTransaction();
 		Customer customer = sesion.get(Customer.class,idUser);
-		Order order = new Order(new Date());
+		Order order = new Order(new GregorianCalendar(2023,7,5));
 		order.setFormaPago("efectivo");
 		customer.agregarPedidos(order);
 		sesion.save(order);

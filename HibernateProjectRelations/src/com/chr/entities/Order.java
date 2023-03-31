@@ -1,7 +1,7 @@
 package com.chr.entities;
 
 
-import java.util.Date;
+import java.util.GregorianCalendar;
 
 import javax.persistence.*;
 
@@ -15,7 +15,7 @@ public class Order {
 	private int id;
 	
 	@Column(name = "fecha")
-	private Date dateField;
+	private GregorianCalendar dateField;
 	
 	@Column(name = "formapago")
 	private String formaPago;
@@ -24,7 +24,7 @@ public class Order {
 	@JoinColumn(name="customer_id",referencedColumnName = "idCustomer")
 	private Customer customer;
 	
-	public Order(Date date) {
+	public Order(GregorianCalendar date) {
 		
 		this.dateField = date;
 	}
