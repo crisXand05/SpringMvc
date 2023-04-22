@@ -1,7 +1,0 @@
-INDEX VERSION 1.4+C:\Users\crist\Documents\JAVA\Sprinmvc\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-3132138270.index
-4003499930.index
-1064996629.index
-175453127.index
-2127162684.index
-652297000.index
